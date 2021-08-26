@@ -1,0 +1,120 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#page-container h4 {
+    position: absolute;
+    top: -10px;
+    left:10px;
+    color: rgb(226, 226, 222);
+}
+#page-container {
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    border: 2px solid black;
+    height: 90vh;
+    flex-direction: column;
+    background-color: rgb(65, 63, 63);
+}
+
+#calc-container {
+    display: flex;
+    background-color: rgb(206, 205, 204);
+    border-radius: 2px;
+    flex-direction: column;
+}
+.input-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.input-container input {
+    border-radius: 4px;
+}
+
+.inner-calc {
+    display: block;
+    justify-content: center;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+.numbers {
+    display: flex;
+    width: 132px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.equalsBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.operands {
+    display: flex;
+    width: auto;
+    flex-wrap: wrap;
+    flex-direction: column; 
+} 
+
+/* Button bodies */
+.decimal {
+    flex: 0 0 40px;
+}
+.equal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 2px 2px 2px;
+    width: 40px;
+    height: 98px;
+    margin: 2px 2px 2px 2px;
+    border: .5px solid black;
+    box-shadow: 1px 1px 1px grey;
+    border-radius: 3px;
+    background-color: rgba(77, 141, 12, 0.884);
+    color: rgb(226, 226, 222);
+    font-size: 1.25em;
+}
+
+.equal:hover {
+    text-shadow: 0 0 10px rgb(14, 100, 2);
+}
+
+.number, .decimal, .subtract, .add, .multiply, .divide, .clearInput, .percent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    margin: 2px;
+    border: .5px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgb(129, 127, 127);
+} 
+.number:hover, .decimal:hover, .subtract:hover, .add:hover, .multiply:hover, .divide:hover, .percent:hover {
+    background-color: rgb(170, 169, 169);
+}
+
+.multiply {
+    padding-top: 5px;
+}
+.subtract {
+    padding-bottom: 2px;;
+}
+
+.clearInput {
+    font-size: 1.15em;
+    background-color: rgba(241, 106, 133, 0.87);
+}
+.clearInput:hover {
+    background-color: crimson;
+}
