@@ -47,6 +47,8 @@
 
 .numbers {
     display: flex;
+    justify-content: center;
+    align-content: center;
     width: 132px;
     flex-wrap: wrap;
     flex-direction: row;
@@ -54,11 +56,15 @@
 
 .equalsBox {
     display: flex;
+    justify-content: center;
+    align-content: center;
     flex-direction: column;
 }
 
 .operands {
     display: flex;
+    justify-content: center;
+    align-content: center;
     width: auto;
     flex-wrap: wrap;
     flex-direction: column; 
@@ -74,7 +80,7 @@
     align-items: center;
     margin: 2px 2px 2px 2px;
     width: 40px;
-    height: 98px;
+    height: 64px;
     margin: 2px 2px 2px 2px;
     border: .5px solid black;
     box-shadow: 1px 1px 1px grey;
@@ -88,19 +94,18 @@
     text-shadow: 0 0 10px rgb(14, 100, 2);
 }
 
-.number, .decimal, .subtract, .add, .multiply, .divide, .clearInput, .percent {
+.number, .decimal, .subtract, .add, .multiply, .divide, .percent, .remove, .clearInput {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
-    height: 30px;
-    padding: 2px;
+    height: 30px; 
     margin: 2px;
     border: .5px solid black;
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgb(129, 127, 127);
 } 
-.number:hover, .decimal:hover, .subtract:hover, .add:hover, .multiply:hover, .divide:hover, .percent:hover {
+.number:hover, .decimal:hover, .subtract:hover, .add:hover, .multiply:hover, .divide:hover, .percent:hover, .remove:hover {
     background-color: rgb(170, 169, 169);
 }
 
@@ -111,6 +116,7 @@
     padding-bottom: 2px;;
 }
 
+
 .clearInput {
     font-size: 1.15em;
     background-color: rgba(241, 106, 133, 0.87);
@@ -118,3 +124,6 @@
 .clearInput:hover {
     background-color: crimson;
 }
+
+
+
