@@ -8,18 +8,20 @@ function subtract(minuend, subtrahend) {
 }
 
 function divide(dividend, divisor) {
-    return Number(dividend) / Number(divisor);
- 
+    if (Number(dividend) !== 0 && Number(divisor) !== 0){
+        return Number(dividend) / Number(divisor);
+    }
+    return 'Division by 0 is impossible';
 }
 
 function multiply(multiplicand, multiplier) {
     return Number(multiplicand) * Number(multiplier);
 }
 
-function percent(percentage, value) {
-    return (Number(percentage)/100) * Number(value);
-  
+function percent(percentage) {
+    return (Number(percentage)/100);
 }
+
 let [multiplierIndex, divisionIndex, additionIndex, subtractionIndex, percentIndex] = [[],[],[],[],[]];
 
 
@@ -28,15 +30,20 @@ function operate(string) {
     
     let result;
     let index;
-    let equation = checkEquation(string.match(/^([-+]?)(\d+(.?)(\d+)?)(?:\s*([-+\*\/%])((?:\s[-+\*\/%])?\d+)(.?)(\d+)?)+$/g));
-    //checkEquation(string.match(/^\s*([-+\*\/]?)(\d+)(?:\s*([-+\*\/])\s*((?:\s[-+\*\/])?\d+)\s*)+$/g));
+    let equation = checkEquation(string.match(/^([-+.]?)(\d+(.\d+)?)%?(?:([-+\*\/%])((?:\s[-+\*\/%])?.?\d+)(.?)(\d+)?%?)*$/g));
+    //checkEquation(string.match(/^([-+]?)?(\d+(.?)(\d+)?)(?:\s*([-+\*\/%])((?:\s[-+\*\/%])?\d+)(.?)(\d+)?)+$/g));
 
     buildOperatorIndices(equation);
 
     while(percentIndex > 0) {
         index = Number(percentIndex.splice(0,1));
-        result = percent(equation[index-1], equation[index+1]);
-        equation.splice(index-1, 3, result);
+        result = percent(equation[index-1]);
+        if (equation[index-2] == '+' || equation[index-2] == '-' || equation[index-2] == '/') {
+            result *= equation[index-3];  
+        }else if(equation[index+1 == /[0-9]+/g]) {
+            result *= equation[index+1];
+        }
+        equation.splice(index-1, 2, result);
         buildOperatorIndices(equation);
     }
     while (multiplierIndex.length > 0 || divisionIndex > 0) {
@@ -56,7 +63,8 @@ function operate(string) {
 
 function checkEquation(equation) {
     if (equation !== undefined || equation !== null) {
-        let newEquation = equation.toString().split(/([-|+|\*|\/%])+/g);
+        let newEquation = equation.toString().split(/([-|+|*|/|\%])/g);
+        if (newEquation.includes('%')) {newEquation.splice(newEquation.indexOf('%')+1, 1); }
         return newEquation;
     }
     return 0;
@@ -94,4 +102,5 @@ function chooseOperation(equation, index) {
 }
 
 
-export { operate };
+export { operate }
+
