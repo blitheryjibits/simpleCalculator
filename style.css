@@ -27,13 +27,26 @@
 }
 .input-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 5px;
 }
-.input-container input {
-    border-radius: 4px;
+#secondaryInput {
+    display: flex;
+    justify-content: flex-end;
+    height: 15px;
+    width: 200px;
+    font-size: 0.8em;
 }
-
+#mainInput {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 20px;
+    height: 20px;
+    width: 200px;
+    
+}
 .inner-calc {
     display: block;
     justify-content: center;
