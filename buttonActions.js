@@ -66,3 +66,14 @@ equals.addEventListener('click', () => {
     
 });
 
+document.addEventListener('keydown', (e) => {
+    //console.log(e.key);
+    let back = /(backspace)/i;
+    let regex = /([(\d)(+)(\-)(*)(/)])/;
+    if (regex.test(e.key)) { input.value += e.key}
+    else if (back.test(e.key)) {
+        console.log(e.key);
+        let string = input.value.slice(0,-1);
+        input.value = string;
+    }
+});
