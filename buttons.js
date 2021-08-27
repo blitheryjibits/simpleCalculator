@@ -43,7 +43,11 @@ for (let i = 9; i >= 0; i--) {
     clear.classList.add('clearInput');
     clear.textContent = 'c';
 
+    const remove = document.createElement('button');
+    remove.classList.add('remove');
+    remove.textContent = '<';
+
 numbersBox.append(decimal, percent);
 operandsBox.append(add, subtract, multiplier, divide);
-equalsBox.append(clear, equals);
+equalsBox.append(clear, remove, equals);
 
